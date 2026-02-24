@@ -1,0 +1,20 @@
+
+//  Напишите функцию findSubstring(substring, arr), которая принимает строку substring и массив строк arr, и возвращает массив строк, которые содержат подстроку substring.
+
+//     - Подстрока должна быть найдена в любом месте строки.
+//     - Регистр символов имеет значение (чувствительность к регистру).
+//     - Если ни одна строка не содержит подстроку, вернуть пустой массив.
+
+// Примеры:
+// Input 1: "oo", ["food", "door", "moon"]
+// Output 1: ["food", "door", "moon"]
+// Input 2: "xyz", ["apple", "banana", "cherry"]
+// Output 2: []
+
+
+function substringSearch(substring,string){
+  return string.filter((word) => word.includes(substring))
+}
+
+
+console.log(substringSearch("xyz", ["apple", "banana", "cherry"]))
