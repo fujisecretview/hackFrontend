@@ -1,6 +1,16 @@
-// есть набор маршрутов
-// верни маршруты в порядке следования
+// Route Construction
+// OzonVKTinkoff
+// We have a set of tickets of the form:
 
+// [
+//         { from: 'London', to: 'Moscow' },
+//         { from: 'NY', to: 'London' },
+//         { from: 'Moscow', to: 'SPb' },
+//         ...
+//     ]
+
+// These tickets form one continuous route with no loops or repeated stops. Return the ticket objects in route order.
+// Examples:
 // Input 1: [ { from: "C", to: "D" }, { from: "B", to: "C" }, { from: "A", to: "B" }, { from: "D", to: "E" } ]
 // Output 1: [ { from: "A", to: "B" }, { from: "B", to: "C" }, { from: "C", to: "D" }, { from: "D", to: "E" } ]
 // Input 2: [ { from: "London", to: "Moscow" }, { from: "NY", to: "London" }, { from: "Moscow", to: "SPb" } ]
@@ -8,25 +18,11 @@
 // Input 3: [ { from: "London", to: "Moscow" }, { from: "Tokio", to: "NY" }, { from: "NY", to: "London" }, { from: "SPb", to: "Berlin" }, { from: "Moscow", to: "SPb" } ]
 // Output 3: [ { from: "Tokio", to: "NY" }, { from: "NY", to: "London" }, { from: "London", to: "Moscow" }, { from: "Moscow", to: "SPb" }, { from: "SPb", to: "Berlin" } ]
 
-// сравнивать последнее с первым,
-
-const routes = [
-  { from: "London", to: "Moscow" },
-  { from: "Tokio", to: "NY" },
-  { from: "NY", to: "London" },
-  { from: "SPb", to: "Berlin" },
-  { from: "Moscow", to: "SPb" },
-];
-const routes2 = [
-  { from: "London", to: "Moscow" },
-  { from: "NY", to: "London" },
-  { from: "Moscow", to: "SPb" },
-];
 
 function getRoutes(routes) {
-  const result = []; // запушить берлин, как конечную точку, но тогда я должен буду сравнить со всеми
+  const result = []; // Build the route backward, starting with the final ticket.
 
-  // идея с map() так как не повторяются точки прибытия и назначения
+  // A map works because departure and arrival points do not repeat.
 
   const map = new Map();
 
@@ -64,5 +60,3 @@ function getRoutes(routes) {
 
   return result.map(([from, to]) => ({ from, to }));
 }
-
-console.log(getRoutes(routes2));
