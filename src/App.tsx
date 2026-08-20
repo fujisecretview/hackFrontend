@@ -1,19 +1,17 @@
-import './App.css'
-import HomePage from './HomePage'
+import "./App.css";
+import HomePage from "./HomePage";
 import { Routes, Route } from "react-router";
-import ModalComponent from './React Problems/Modal/ModalComponent';
-
+import ModalComponent from "./React Problems/Modal/ModalComponent";
 
 function App() {
-
   return (
     <>
-    <Routes>
-      <Route index element={<HomePage/>}/>
-      <Route element={<ModalComponent/>}/>
-    </Routes>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="/modal-component" element={<ModalComponent />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
